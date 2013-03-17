@@ -38,7 +38,7 @@ func Clr(bit uint, bitmap[]byte) {
 	bitmap[bit >> byteShift] &= ^(1 << (bit & (byteWidth - 1)))
 }
 
-// CLrAll clears all bits in the bitmap.
+// ClrAll clears all bits in the bitmap.
 func ClrAll(bitmap []byte) {
 	for i, _ := range bitmap {
 		bitmap[i] = 0
@@ -50,7 +50,7 @@ func IsSet(bit uint, bitmap []byte) (bool) {
 	return bitmap[bit >> byteShift] & (1 << (bit & (byteWidth - 1))) != 0
 }
 
-// Areset tests if bits are set in bitmap.
+// AreSet tests if bits are set in bitmap.
 func AreSet(bitmap []byte, bits ...uint) (bool) {
 	for _, bit := range bits {
 		if IsSet(bit, bitmap) == false {
